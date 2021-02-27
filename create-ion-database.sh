@@ -1,9 +1,9 @@
 #!/bin/bash
 source ~/.bashrc
 
-endpoint=balsamsqlserver.database.windows.net
-user_name=devopsadmin
-password=ThisIsCode11
+endpoint=nikhar.database.windows.net
+user_name=nikhar
+password=Cavisson@123
 /opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "PurgeDB.sql"
 /opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -Q "create database ${Environment}WarehouseManager;
         create database ${Environment}Trees;
