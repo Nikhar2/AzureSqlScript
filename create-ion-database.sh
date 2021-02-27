@@ -32,76 +32,76 @@ $Environment = ${Environment}
 echo $Environment
 
 envsubst < Quartz.sql > QuartzSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "QuartzSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}Quartz -i "QuartzSubst.sql"
 ############################################################################################################################
 envsubst < Reporting.sql > ReportingSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "ReportingSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}Reporting -i "ReportingSubst.sql"
 
 envsubst < ReportingData.sql > ReportingDataSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "ReportingDataSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}Reporting -i "ReportingDataSubst.sql"
 ############################################################################################################################
 
 envsubst < Master.sql > MasterSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "MasterSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}WarehouseManager -i "MasterSubst.sql"
 
 envsubst < MasterData.sql > MasterDataSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "MasterDataSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}WarehouseManager -i "MasterDataSubst.sql"
 
 ############################################################################################################################ 
 
 envsubst < ReconciledInventoryTrees.sql > ReconciledInventoryTreesSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "ReconciledInventoryTreesSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d  ${Environment}Trees -i "ReconciledInventoryTreesSubst.sql"
 
 ############################################################################################################################
 
 envsubst < ReconciledInventory.sql > ReconciledInventorySubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "ReconciledInventorySubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}International -i "ReconciledInventorySubst.sql"
 
 ###############################################################################################################################
 
 envsubst < ReconSkusByStoreTrees.sql > ReconSkusByStoreTreesSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "ReconSkusByStoreTreesSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}Trees -i "ReconSkusByStoreTreesSubst.sql"
 
 ############################################################################################################################
 
 envsubst < ReconSkusByStore.sql > ReconSkusByStoreSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "ReconSkusByStoreSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}International -i "ReconSkusByStoreSubst.sql"
 
 ############################################################################################################################
 
 envsubst < ReconWarehouseQtyTrees.sql > ReconWarehouseQtyTreesSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "ReconWarehouseQtyTreesSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}Trees -i "ReconWarehouseQtyTreesSubst.sql"
 
 ############################################################################################################################
 
 envsubst < ReconWarehouseQty.sql > ReconWarehouseQtySubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "ReconWarehouseQtySubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}International -i "ReconWarehouseQtySubst.sql"
 
 ############################################################################################################################
 envsubst < InternationalHistory.sql > InternationalHistorySubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "InternationalHistorySubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}InternationalHistory -i "InternationalHistorySubst.sql"
 
 envsubst < InternationalHistoryData.sql > InternationalHistoryDataSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "InternationalHistoryDataSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}InternationalHistory -i "InternationalHistoryDataSubst.sql"
 ############################################################################################################################
 envsubst < TreesHistory.sql > TreesHistorySubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "TreesHistorySubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}TreesHistory -i "TreesHistorySubst.sql"
 
 envsubst < TreesHistoryData.sql > TreesHistoryDataSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "TreesHistoryDataSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}TreesHistory -i "TreesHistoryDataSubst.sql"
 ############################################################################################################################
 
 envsubst < Trees.sql > TreesSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "TreesSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}Trees -i "TreesSubst.sql"
 
 envsubst < TreesData.sql > TreesDataSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "TreesDataSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}Trees  -i "TreesDataSubst.sql"
 ############################################################################################################################
 envsubst < International.sql > InternationalSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "InternationalSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}International -i "InternationalSubst.sql"
 
 envsubst < InternationalData.sql > InternationalDataSubst.sql
-/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -i "InternationalDataSubst.sql"
+/opt/mssql-tools/bin/sqlcmd -S $endpoint -U $user_name -P $password -d ${Environment}International -i "InternationalDataSubst.sql"
 ############################################################################################################################
 
 #envsubst < UpdateSalesforceJobUrl.sql > UpdateSalesforceJobUrlSubst.sql
